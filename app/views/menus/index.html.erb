@@ -6,7 +6,7 @@
         <h2 class="restaurant-name"><%= @restaurant.menu.name %></h2>
         <% @restaurant.menu.dishes.each do |dish| %>
           <p class="dish-name"><%= dish.name %></p>
-          <p class="dish-price"><%= number_to_currency(dish.price) %></p>
+          <p class="dish-price"><%= number_to_currency(dish.price, unit: '€', format: "%n %u") %></p>
         <% end %>
       </li>
     <% else %>
