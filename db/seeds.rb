@@ -12,9 +12,15 @@ require 'faker'
 Restaurant.destroy_all
 Menu.destroy_all
 Dish.destroy_all
+start_time = Time.now
+
+# Reset sequence (for SQLite)
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='restaurants';")
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='menus';")
+ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='dishes';")
 
 # Create random restaurants
-100.times do
+5.times do
   restaurant = Restaurant.create!(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
@@ -22,13 +28,13 @@ Dish.destroy_all
   )
 
   # Create random menus for each restaurant
-  50.times do
+  10.times do
     menu = restaurant.create_menu!(
       name: "#{Faker::Restaurant.type} Menu"
     )
 
     # Create random dishes for each menu
-    70.times do
+    15.times do
       menu.dishes.create!(
         name: Faker::Food.dish,
         price: Faker::Commerce.price
@@ -36,3 +42,5 @@ Dish.destroy_all
     end
   end
 end
+
+puts "Seeding took #{Time.now - start_time} seconds"

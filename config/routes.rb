@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "restaurants#opener"
   resources :restaurants do
-    resources :menus, only: [:index, :show]
+    resources :menus, only: [:index, :show, :edit]
   end
 end

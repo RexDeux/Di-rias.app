@@ -19,84 +19,143 @@
 /* General styles for the body */
 /* General styles for the body */
 /* General styles for the body */
+/* Global styles */
+/* General Styles */
+/* General Styles */
+/* General Styles */
+/* General Styles */
+/* General Styles */
 body {
+  font-family: 'Press Start 2P', cursive; /* Pixelated font for retro vibe */
+  background-color: #87CEEB; /* Terraria sky-blue */
+  background-image: url('Sé de Braga.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #333; /* Dark gray text */
   margin: 0;
-  font-family: 'Courier New', Courier, monospace; /* Monospace font for retro feel */
-  background-color: #F9F9F9; /* Light background resembling stone */
-  background-image: url('Sé de Braga.png'); /* Background image */
-  background-size: cover; /* Cover the entire background */
-  background-attachment: fixed; /* Parallax effect */
-}
-
-/* Styles for the opener page */
-.opener {
+  padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.opener .button {
-  padding: 15px 30px;
-  font-size: 1.5em;
-  color: white;
-  background-color: #A0522D; /* Warm earthy brown */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* Container */
+.container {
+  width: 90%;
+  max-width: 800px; /* Reduced max-width */
+  margin: 20px auto;
+  padding: 10px; /* Reduced padding */
+  background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 
-.opener .button:hover {
-  background-color: #8B4513; /* Darker brown on hover */
+/* Headers */
+h1, h2, h3 {
+  color: #4B0082; /* Rich indigo */
+  text-shadow: 1px 1px 0px #fff, 2px 2px 0px #000; /* Reduced shadow for smaller text */
+  text-align: center;
+  margin-bottom: 10px; /* Reduced margin */
 }
 
-/* Styles for the index page */
-.index {
-  background-color: rgba(240, 240, 240, 0.9); /* Light grey with slight transparency */
-  padding: 20px;
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 6px 12px; /* Reduced padding */
+  margin: 8px 0; /* Reduced margin */
+  font-size: 14px; /* Smaller font size */
+  color: #fff;
+  background-color: #FF4500; /* Orange-red */
+  border: 2px solid #8B0000; /* Dark red */
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 2px 2px 0px #000;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
+.button:hover {
+  background-color: #8B0000; /* Dark red on hover */
+  transform: scale(1.05);
+}
+
+/* Restaurant List */
 .restaurant-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
   display: flex;
-  flex-wrap: wrap; /* Allow cards to wrap to the next line */
-  justify-content: space-between; /* Evenly distribute cards */
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .restaurant-card {
-  background-color: rgba(255, 255, 255, 0.9); /* White background for cards with slight transparency */
-  border: 1px solid rgba(221, 221, 221, 0.7); /* Light grey border */
-  border-radius: 5px;
-  padding: 15px;
-  margin: 10px;
-  width: calc(30% - 20px); /* Adjust width for three cards per row */
-  transition: box-shadow 0.3s;
+  transition: transform 0.3s;
+  width: 100%;
+  max-width: 600px; /* Adjust to your desired width */
+  background-color: #FFD700; /* Gold */
+  border: 2px solid #B8860B;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .restaurant-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  transform: translateY(-3px); /* Slight hover effect */
 }
 
 .restaurant-name {
-  font-size: 1.8em;
-  color: #8B0000; /* Dark red for restaurant names */
+  font-size: 18px; /* Reduced font size */
+  margin-bottom: 6px; /* Reduced margin */
 }
 
-.restaurant-address,
-.restaurant-city {
-  font-size: 1.2em;
-  color: #333; /* Darker text color */
+.dish-name {
+  font-size: 14px; /* Reduced font size */
+  color: #4B0082; /* Indigo */
+  margin: 2px 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .restaurant-card {
-    width: calc(45% - 20px); /* Two cards per row on smaller screens */
-  }
+.dish-price {
+  font-size: 12px; /* Reduced font size */
+  color: #2E8B57; /* Sea green */
 }
 
-@media (max-width: 480px) {
-  .restaurant-card {
-    width: 100%; /* One card per row on very small screens */
-  }
+/* No Menu Message */
+.no-menu {
+  font-size: 14px; /* Reduced font size */
+  color: #B22222; /* Firebrick */
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Menu Card */
+.menu-card {
+  padding: 10px; /* Reduced padding */
+  background-color: #FFD700; /* Gold */
+  border: 2px solid #B8860B; /* Dark goldenrod */
+  border-radius: 6px; /* Slightly smaller border radius */
+  box-shadow: 2px 2px 0px #000;
+  margin: 10px auto; /* Reduced margin */
+  max-width: 500px; /* Further reduced max-width */
+  text-align: center;
+}
+
+.menu-card h2 {
+  margin-bottom: 10px; /* Reduced margin */
+}
+
+.menu-card .dish-name {
+  font-size: 14px; /* Reduced font size */
+  margin-bottom: 6px; /* Reduced margin */
+}
+
+.menu-card .dish-price {
+  font-size: 12px; /* Reduced font size */
+  color: #8B0000; /* Dark red */
 }

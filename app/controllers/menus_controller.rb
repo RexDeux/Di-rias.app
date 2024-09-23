@@ -2,11 +2,11 @@ class MenusController < ApplicationController
   before_action :set_restaurant
 
   def index
-    @menus = @restaurant.menus
+    @menu = @restaurant.menu
   end
 
   def show
-    @menu = @restaurant.menus.find(params[:id])
+    @menu = @restaurant.menu
   end
 
   private
