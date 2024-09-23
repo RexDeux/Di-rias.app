@@ -13,3 +13,90 @@
  *= require_tree .
  *= require_self
  */
+
+/* General styles for the body */
+/* General styles for the body */
+/* General styles for the body */
+/* General styles for the body */
+/* General styles for the body */
+body {
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace; /* Monospace font for retro feel */
+  background-color: #F9F9F9; /* Light background resembling stone */
+  background-image: url('Sé de Braga.png'); /* Background image */
+  background-size: cover; /* Cover the entire background */
+  background-attachment: fixed; /* Parallax effect */
+}
+
+/* Styles for the opener page */
+.opener {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.opener .button {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  color: white;
+  background-color: #A0522D; /* Warm earthy brown */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.opener .button:hover {
+  background-color: #8B4513; /* Darker brown on hover */
+}
+
+/* Styles for the index page */
+.index {
+  background-color: rgba(240, 240, 240, 0.9); /* Light grey with slight transparency */
+  padding: 20px;
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: space-between; /* Evenly distribute cards */
+}
+
+.restaurant-card {
+  background-color: rgba(255, 255, 255, 0.9); /* White background for cards with slight transparency */
+  border: 1px solid rgba(221, 221, 221, 0.7); /* Light grey border */
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px;
+  width: calc(30% - 20px); /* Adjust width for three cards per row */
+  transition: box-shadow 0.3s;
+}
+
+.restaurant-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+.restaurant-name {
+  font-size: 1.8em;
+  color: #8B0000; /* Dark red for restaurant names */
+}
+
+.restaurant-address,
+.restaurant-city {
+  font-size: 1.2em;
+  color: #333; /* Darker text color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .restaurant-card {
+    width: calc(45% - 20px); /* Two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .restaurant-card {
+    width: 100%; /* One card per row on very small screens */
+  }
+}
