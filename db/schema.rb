@@ -13,12 +13,11 @@
 ActiveRecord::Schema[7.0].define(version: 2024_09_20_104959) do
   create_table "dishes", force: :cascade do |t|
     t.string "name"
-    t.string "menu_ids_type", null: false
-    t.integer "menu_ids_id", null: false
+    t.integer "menu_id", null: false
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["menu_ids_type", "menu_ids_id"], name: "index_dishes_on_menu_ids"
+    t.index ["menu_id"], name: "index_dishes_on_menu_id"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -37,5 +36,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_20_104959) do
     t.string "city"
   end
 
+  add_foreign_key "dishes", "menus"
   add_foreign_key "menus", "restaurants"
 end
