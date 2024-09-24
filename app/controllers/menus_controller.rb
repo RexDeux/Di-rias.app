@@ -1,17 +1,28 @@
 class MenusController < ApplicationController
-  before_action :set_restaurant
-
   def index
-    @menu = @restaurant.menu
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @menu = Menu.find(@restaurant.menu.id)
   end
 
-  def show
-    @menu = @restaurant.menu
+  def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @menu = Menu.find(params[:id])
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @menu = Menu.find(params[:id])
+    
+    if @menu.update(menu_params)
+      redirect_to restaurant_menus_path(@restaurant), notice: 'Menu updated successfully.'
+    else
+      render :edit
+    end
   end
 
   private
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
+  def menu_params
+    params.require(:menu).permit(:name, dishes_attributes: [:id, :name, :price, :quantity, :_destroy])
   end
 end

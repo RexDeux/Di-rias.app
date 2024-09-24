@@ -1,0 +1,33 @@
+<h1>Edit Menu: <%= @menu.name %></h1>
+
+<%= form_with model: [@restaurant, @menu], local: true do |f| %>
+  <%= f.label :name, "Menu Name" %>
+  <%= f.text_field :name, required: true %>
+
+  <h2>Dishes</h2>
+  <div class="dishes">
+    <% @menu.dishes.each do |dish| %>
+      <div class="dish-card">
+        <%= hidden_field_tag "menu[dishes_attributes][#{dish.id}][id]", dish.id %>
+        
+        <%= label_tag "menu[dishes_attributes][#{dish.id}][name]", "Dish Name" %>
+        <%= text_field_tag "menu[dishes_attributes][#{dish.id}][name]", dish.name, required: true %>
+
+        <%= label_tag "menu[dishes_attributes][#{dish.id}][price]", "Price" %>
+        <%= text_field_tag "menu[dishes_attributes][#{dish.id}][price]", dish.price, required: true %>
+
+        <%= label_tag "menu[dishes_attributes][#{dish.id}][image]", "Image" %>
+        <%= file_field_tag "menu[dishes_attributes][#{dish.id}][image]" %>
+
+        <%= hidden_field_tag "menu[dishes_attributes][#{dish.id}][_destroy]", false %>
+        <%= link_to 'Remove Dish', '#', class: 'remove_dish' %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Add Dish', '#', class: 'add_dish' %>
+  
+  <%= f.submit "Save Menu", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back to Menus', restaurant_menus_path(@menu.restaurant) %>
