@@ -1,0 +1,105 @@
+<h1>Admin Dashboard</h1>
+
+<section class="admin-section">
+  <h2>Users Management</h2>
+  <p><%= @users.first.restaurant_id.present? ? Restaurant.find(@users.first.restaurant_id) : 'Sem Restaurante Associado' %></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Admin</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.admin? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to 'Edit Profile', edit_user_registration_path %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<section class="admin-section">
+  <h2>Restaurants Management</h2>
+  <%= link_to 'New Restaurant', new_restaurant_path, class: 'button' %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><%= restaurant.name %></td>
+          <td><%= restaurant.city %></td>
+          <td>
+            <%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
+            <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<section class="admin-section">
+  <h2>Menus Management</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Menu Name</th>
+        <th>Restaurant</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @menus.each do |menu| %>
+        <tr>
+          <td><%= menu.name %></td>
+          <td><%= menu.restaurant.name %></td>
+          <td>
+            <%= link_to 'Edit', edit_restaurant_menu_path(menu.restaurant, menu) %> |
+            <%= link_to 'Delete', restaurant_menu_path(menu.restaurant, menu), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<section class="admin-section">
+  <h2>Dishes Management</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Dish Name</th>
+        <th>Price</th>
+        <th>Menu</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dishes.each do |dish| %>
+        <tr>
+          <td><%= dish.name %></td>
+          <td><%= number_to_currency(dish.price) %></td>
+          <td><%= dish.menu.name %></td>
+          <td>
+            <%= link_to 'Edit', edit_restaurant_menu_dish_path(dish.menu.restaurant, dish.menu, dish) %> |
+            <%= link_to 'Delete', restaurant_menu_dish_path(dish.menu.restaurant, dish.menu, dish), method: :delete, data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

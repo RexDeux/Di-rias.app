@@ -16,6 +16,7 @@
   </ul>
 </div>
 
-
-<%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), class: 'button' %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), class: 'button' %>
+<% end %>
 <%= link_to 'Back to Restaurants', restaurants_path, class: 'button' %>

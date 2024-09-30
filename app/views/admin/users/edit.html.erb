@@ -1,0 +1,17 @@
+<h1>Edit User</h1>
+
+<%= form_for([:admin, @user]) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :admin %><br>
+    <%= f.check_box :admin %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update User" %>
+  </div>
+<% end %>

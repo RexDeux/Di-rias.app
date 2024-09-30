@@ -1,0 +1,49 @@
+h1 {
+    font-size: 32px;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .admin-section {
+    margin-bottom: 40px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white; /* Set table background to white */
+  }
+  
+  table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+  }
+  
+  button, .button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  button:hover, .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .alert {
+    color: red;
+    font-weight: bold;
+  }
+  

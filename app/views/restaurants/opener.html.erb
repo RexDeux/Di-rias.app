@@ -3,7 +3,11 @@
 <head>
   <title>Welcome to the Restaurant App</title>
 </head>
-<body class="opener">
+<% if user_signed_in? && current_user.admin? %>
+  <body class="opener">
   <button class="button" onclick="location.href='<%= restaurants_path %>'">Bem Vindo Às Diárias!</button>
 </body>
+<% elsif user_signed_in? %>
+  <%= link_to 'Back to Restaurants', restaurants_path, class: 'btn btn-secondary' %>
+<% end %>
 </html>

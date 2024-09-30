@@ -18,6 +18,8 @@
     <% end %>
   </div>
 
-<%= link_to 'Adicionar Restaurante', new_restaurant_path(@restaurant), class: 'button' %>
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to 'Adicionar Restaurante', new_restaurant_path(@restaurant), class: 'button' %>
+<% end %>
 </body>
 </html>
